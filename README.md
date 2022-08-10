@@ -1,4 +1,4 @@
-# cypress-axe
+# A11Y Analyser
 
 [![npm](https://img.shields.io/npm/v/a11y-analyser.svg)](https://www.npmjs.com/package/cypress-axe)
 
