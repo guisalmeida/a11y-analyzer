@@ -7,7 +7,7 @@ describe('Todo app', () => {
   
   it('Should log any accessibility failures', () => {
     console.log(cy)
-    cy.analizeA11y('/');
+    cy.analyseA11y('/');
   })
 
   // it('Should exclude specific elements on the page', () => {
