@@ -1,6 +1,6 @@
 # A11Y Analyser
 
-[![npm](https://img.shields.io/npm/v/a11y-analyser.svg)](https://www.npmjs.com/package/cypress-axe)
+[![npm](https://img.shields.io/npm/v/a11y-analyser.svg)](https://www.npmjs.com/package/a11y-analyser)
 
 Test accessibility with in [Cypress](https://cypress.io).
 
@@ -8,39 +8,73 @@ Test accessibility with in [Cypress](https://cypress.io).
 
 1. **Install `a11y-analyser` from npm:**
 
-- For Cypress v10 install latest cypress-axe
-
 ```sh
-npm install --save-dev cypress-axe
+npm install --save-dev a11y-analyser
 ```
 
-1. **Install peer dependencies:**
-
-- For Cypress v10 and above
+2. **Install peer dependencies:**
 
 ```sh
-npm install --save-dev cypress axe-core cypress-axe
+npm install --save-dev cypress axe-core cypress-axe cypress-terminal-report
+```
+3. **Configure Cypress.**
+
+- Run the command below:
+
+```js
+npx cypress open
 ```
 
-1. **Include the commands.**
+Then cypress will opens a window dialogue like this one:
+![Welcome cypress image](./public/images/cypress-config1.png)  
+Selecting E2E Testing it will create a configuration environment for us.
+![Files for configuration](./public/images/cypress-config2.png)  
+Just hit the continue button and select a browser to start testing.
+Afterwards you can create your first spec with Cypress in this interface or you can create your specs mannualy inside the folder `cypress/e2e`.
+![Create spec](./public/images/cypress-config3.png)  
+![Create spec](./public/images/cypress-config4.png)  
+After hit create and run your test inside the interface of tests of the Cypress.
 
-- For Cypress v10 and above update `cypress/support/e2e.js` file to include the cypress-axe commands by adding:
-- For Cypress v9 and below update `cypress/support/index.js` file to include the cypress-axe commands by adding:
+
+4. **Include the commands.**
+
+- Update `cypress/support/e2e.js` file to include the cypress-axe commands by adding:
 
 ```js
 import 'a11y-analyser'
 ```
 
-4. **Add a task to log the messages to the terminal** when Cypress executes the spec files. [Example - configuring log task](https://docs.cypress.io/api/commands/task.html#Usage).
+5. **Include the configuration.**
+
+- Update `cypress.config.js` file to include the a11y-analyser commands by adding:
+
+```js
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  env: {
+    "hideElements": true              // To hide elements like XHR requests
+  },
+  e2e: {
+    baseUrl: 'http://localhost:8080', // Choose you localhost
+    screenshotOnRunFailure: false,    // Don't take screenshots
+    video: false,                     // Don't record videos
+    setupNodeEvents(on, config) {
+      require('cypress-terminal-report/src/installLogsPrinter')(on);
+    },
+  },
+});
+```
+
+> NOTE: To use require import, make sure there ins't a `"type": "module",` inside your `package.json` and if using typescript and es6 imports ensure `esModuleInterop` is enabled.
 
 
 ## Commands
 
 ### cy.analyseA11y
 
-This will inject the `axe-core` runtime into the page under test. You must run this **after** a call to `cy.visit()` and before you run the `checkA11y` command.
+This will inject the `axe-core` runtime into the page under test.
 
-You run this command with `cy.injectAxe()` either in your test, or in a `beforeEach`, as long as the `visit` comes first.
 
 ```js
 it('Test', () => {
@@ -56,91 +90,25 @@ it('Test', () => {
 
 ```js
 // Basic usage
-it('Has no detectable a11y violations on load', () => {
-  // Test the page at initial load
-  cy.checkA11y()
-})
-```
-
-#### Using the violationCallback argument
-
-The violation callback parameter accepts a function and allows you to add custom behavior when violations are found.
-
-This example adds custom logging to the terminal running Cypress, using `cy.task` and the `violationCallback` argument for `cy.checkA11y`
-
-##### In Cypress plugins file
-
-This registers a `log` task as seen in the [Cypress docs for cy.task](https://docs.cypress.io/api/commands/task.html#Usage) as well as a `table` task for sending tabular data to the terminal.
-
-```js
-module.exports = (on, config) => {
-  on('task', {
-    log(message) {
-      console.log(message)
-
-      return null
-    },
-    table(message) {
-      console.table(message)
-
-      return null
-    }
+it('Should log any accessibility failures', () => {
+    cy.analyseA11y('/');
   })
-}
 ```
-
-#### In your spec file
-
-Then we create a function that uses our tasks and pass it as the `validationCallback` argument to `cy.checkA11y`
-
-```js
-// Define at the top of the spec file or just import it
-function terminalLog(violations) {
-  cy.task(
-    'log',
-    `${violations.length} accessibility violation${
-      violations.length === 1 ? '' : 's'
-    } ${violations.length === 1 ? 'was' : 'were'} detected`
-  )
-  // pluck specific keys to keep the table readable
-  const violationData = violations.map(
-    ({ id, impact, description, nodes }) => ({
-      id,
-      impact,
-      description,
-      nodes: nodes.length
-    })
-  )
-
-  cy.task('table', violationData)
-}
-
-// Then in your test...
-it('Logs violations to the terminal', () => {
-  cy.checkA11y(null, null, terminalLog)
-})
-```
-
-This custom logging behavior results in terminal output like this:
-
-![Custom terminal logging with cy.task and validationCallback](terminal_output_example.png)
 
 ## Standard Output
 
-When accessibility violations are detected, your test will fail and an entry titled "A11Y ERROR!" will be added to the command log for each type of violation found (they will be above the failed assertion). Clicking on those will reveal more specifics about the error in the DevTools console.
+When accessibility violations are detected, your test will fail and an entry titled "A11Y ERROR!" will be added to the command log for each type of violation found (they will be above the failed assertion). Clicking on those will can see where they are on screen and more like impact and a link to a documentation from Axe-core.
 
-![Cypress and DevTools output for passing and failing axe-core audits](cmd_log.png)
+![Cypress and DevTools output for passing and failing axe-core audits](./public/images/cypress-config5.png)
+
+A similar output is present on terminal.
+![Terminal](./public/images/terminal.png)
 
 ## Authors
 
 The project was created by [Guilherme Almeida](https://guisalmeida.com/).
 
 ## Contributors
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
