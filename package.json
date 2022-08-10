@@ -1,0 +1,28 @@
+{
+  "name": "a11y-analizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:e2e:ci",
+    "start": "http-server public",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run --browser chrome --headless",
+    "test:e2e": "start-server-and-test start 8080 cypress",
+    "test:e2e:ci": "start-server-and-test start 8080 cypress:headless"
+  },
+  "keywords": [
+    "a11y",
+    "accessibility",
+    "axe",
+    "axe-core",
+    "cypress"
+  ],
+  "author": "Guilherme Almeida",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^10.3.0",
+    "cypress-axe": "^1.0.0",
+    "cypress-terminal-report": "^4.1.1"
+  }
+}
