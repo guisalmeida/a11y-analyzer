@@ -1,4 +1,4 @@
-import 'cypress-axe'
+require('cypress-axe')
 require('cypress-terminal-report/src/installLogsCollector')();
 
 // Hide all fetch/XHR requests in Cy console, toggle via cypress.json
@@ -8,7 +8,7 @@ if (Cypress.env('hideElements')) {
   if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
     const style = app.document.createElement('style');
     style.innerHTML =
-      '.command-name-request,.command-name-xhr,.command-name-readFile { display: none; }, .command-method::before { content: none; }'
+    '.command-name-request,.command-name-xhr,.command-name-readFile {display: none;} .reporter .command-type-child .command-method:before {content: none;}'
     style.setAttribute('data-hide-command-log-request', '');
 
     app.document.head.appendChild(style);
@@ -27,11 +27,10 @@ function callback(violations) {
         const nodes = Cypress.$(violation.nodes.map(node => node.target).join(','))
 
         Cypress.log({
-            name: `Error: ${violation.help}`,
+            name: `${severityIndicators[violation.impact]} Error: ${violation.help}`,
             consoleProps: () => violation,
             $el: nodes,
-            message: `\n${severityIndicators[violation.impact]} Impact: ${violation.impact}
-            \n[Learn more](${violation.helpUrl})`
+            message: `\nImpact: ${violation.impact}\n[Learn more](${violation.helpUrl})`
         })
 
         violation.nodes.forEach(({ target }) => {

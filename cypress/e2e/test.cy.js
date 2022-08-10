@@ -1,29 +1,24 @@
-// <reference types="cypress"/>
+/// <reference types="cypress" />
 
-describe('Todo app', () => {
-  // beforeEach(() => {
-  //   // cy.injectAxe();
-  // })
-  
+describe('Todo app', () => {  
   it('Should log any accessibility failures', () => {
-    console.log(cy)
-    cy.analyseA11y('/');
+    cy.analyseA11y('https://example.cypress.io');
   })
 
   // it('Should exclude specific elements on the page', () => {
-  //   cy.checkA11y({ exclude: ['.learn'] });
+  //   cy.analyseA11y('https://example.cypress.io', { exclude: ['.learn'] });
   // })
 
   // it('Should execute only specific elements on the page', () => {
-  //   cy.checkA11y('.learn');
+  //   cy.analyseA11y('https://example.cypress.io', '.learn');
   // })
 
   // it('Should only include rules with serious and critical impacts', () => {
-  //   cy.checkA11y(null, { includedImpacts: ['critical', 'serious'] });
+  //   cy.analyseA11y('https://example.cypress.io', { includedImpacts: ['critical', 'serious'] });
   // })
 
   // it.only('Should exclude specific accessibility rules', () => {
-  //   cy.checkA11y(null, {
+  //   cy.analyseA11y('https://example.cypress.io', {
   //     rules: {
   //       'color-contrast': { enabled: false }
   //     }
