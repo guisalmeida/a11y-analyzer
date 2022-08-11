@@ -44,8 +44,8 @@ function callback(violations) {
     });
 }
 
-Cypress.Commands.add("analyseA11y", (path, config = null) => {
+Cypress.Commands.add("analyseA11y", (path, arg1 = null, arg2 = null) => {
     cy.visit(path);
     cy.injectAxe();
-    cy.checkA11y(null, config, callback);
+    cy.checkA11y(arg1, arg2, callback);
 })
