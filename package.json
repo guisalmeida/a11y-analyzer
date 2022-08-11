@@ -21,7 +21,11 @@
     "axe-core",
     "cypress"
   ],
-  "author": "Guilherme Almeida",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuiSAlmeida/a11y-analyser.git"
+  },
+  "author": "Guilherme Almeida <guisalmeida.dev@gmail.com> (https://guisalmeida.com/)",
   "license": "MIT",
   "devDependencies": {
     "cypress": "^10.3.0",
