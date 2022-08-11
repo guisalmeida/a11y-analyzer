@@ -19,7 +19,8 @@
     "accessibility",
     "axe",
     "axe-core",
-    "cypress"
+    "cypress",
+    "cypress-axe"
   ],
   "repository": {
     "type": "git",
