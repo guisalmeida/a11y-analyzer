@@ -1,4 +1,4 @@
-# A11Y analyzer
+# A11Y Analyzer
 
 [![npm](https://img.shields.io/npm/v/a11y-analyzer.svg)](https://www.npmjs.com/package/a11y-analyzer)
 [![Cypress Tests](https://github.com/guisalmeida/a11y-analyzer/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/guisalmeida/a11y-analyzer/actions/workflows/main.yml)
