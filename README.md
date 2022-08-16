@@ -1,16 +1,16 @@
-# A11Y Analyser
+# A11Y analyzer
 
-[![npm](https://img.shields.io/npm/v/a11y-analyser.svg)](https://www.npmjs.com/package/a11y-analyser)
-[![Cypress Tests](https://github.com/guisalmeida/a11y-analyser/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/guisalmeida/a11y-analyser/actions/workflows/main.yml)
+[![npm](https://img.shields.io/npm/v/a11y-analyzer.svg)](https://www.npmjs.com/package/a11y-analyzer)
+[![Cypress Tests](https://github.com/guisalmeida/a11y-analyzer/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/guisalmeida/a11y-analyzer/actions/workflows/main.yml)
 
 Test accessibility with in [Cypress](https://cypress.io).
 
 ## Installation
 
-1. **Install `a11y-analyser` from npm:**
+1. **Install `a11y-analyzer` from npm:**
 
 ```sh
-npm install --save-dev a11y-analyser
+npm install --save-dev a11y-analyzer
 ```
 
 2. **Install peer dependencies:**
@@ -42,12 +42,12 @@ After hit create and run your test inside the interface of tests of the Cypress.
 - Update `cypress/support/e2e.js` file to include the cypress-axe commands by adding:
 
 ```js
-import 'a11y-analyser'
+import 'a11y-analyzer'
 ```
 
 5. **Include the configuration.**
 
-- Update `cypress.config.js` file to include the a11y-analyser commands by adding:
+- Update `cypress.config.js` file to include the a11y-analyzer commands by adding:
 
 ```js
 const { defineConfig } = require("cypress");
