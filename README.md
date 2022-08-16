@@ -133,7 +133,7 @@ When accessibility violations are detected, your test will fail and an entry tit
 
 ![Cypress and DevTools output for passing and failing axe-core audits](./public/images/cypress-config5.png)
 
-A similar output is present on terminal.
+A similar output is present on terminal and on CI logs.
 ![Terminal](./public/images/terminal.png)
 
 ## Authors
