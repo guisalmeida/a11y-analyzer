@@ -1,6 +1,7 @@
 # A11Y Analyser
 
 [![npm](https://img.shields.io/npm/v/a11y-analyser.svg)](https://www.npmjs.com/package/a11y-analyser)
+[![Cypress Tests](https://github.com/guisalmeida/a11y-analyser/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/guisalmeida/a11y-analyser/actions/workflows/main.yml)
 
 Test accessibility with in [Cypress](https://cypress.io).
 
@@ -15,7 +16,7 @@ npm install --save-dev a11y-analyser
 2. **Install peer dependencies:**
 
 ```sh
-npm install --save-dev cypress axe-core cypress-axe cypress-terminal-report
+npm install --save-dev axe-core cypress cypress-axe cypress-terminal-report http-server start-server-and-test
 ```
 3. **Configure Cypress.**
 
