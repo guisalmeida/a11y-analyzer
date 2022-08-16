@@ -1,5 +1,5 @@
 {
-  "name": "a11y-analyser",
+  "name": "a11y-analyzer",
   "version": "0.1.2",
   "description": "A tool to test accessibility with Cypress.",
   "main": "src/index.js",
@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GuiSAlmeida/a11y-analyser.git"
+    "url": "git+https://github.com/GuiSAlmeida/a11y-analyzer.git"
   },
   "author": "Guilherme Almeida <guisalmeida.dev@gmail.com> (https://guisalmeida.com/)",
   "license": "MIT",
