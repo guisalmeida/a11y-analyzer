@@ -104,7 +104,9 @@ describe('Example tests', () => {
   })
 
   it('Should ONLY include rules with serious and critical impacts', () => {
-    cy.analyseA11y('https://example.cypress.io', null, { includedImpacts: ['critical', 'serious'] });
+    cy.analyseA11y('https://example.cypress.io', null, {
+      includedImpacts: ['critical', 'serious']
+    });
   })
 
   it('Should exclude specific accessibility rules', () => {
