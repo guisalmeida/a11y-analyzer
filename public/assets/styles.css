@@ -1,0 +1,10 @@
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: rgb(199, 199, 199);
+}
+
+img {
+    width: 100%;
+    max-width: 1280px;
+}
