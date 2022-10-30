@@ -47,6 +47,10 @@ table {
 	border-spacing: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --light-blue: #00c0d9;
     --white: #ffffff;
@@ -57,6 +61,8 @@ body {
     font-family: 'Nunito', sans-serif;    
     background-color: var(--dark-blue);
     color: var(--dark-blue);
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 code {
@@ -100,7 +106,7 @@ code {
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .header .links a:hover {
@@ -117,12 +123,15 @@ code {
 
 .header .logo {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--white);
 }
 
 .infos {
     height: auto;
     overflow: hidden;
+    text-align: center;
 }
 
 .infos .buttons {
@@ -141,7 +150,7 @@ code {
     flex-direction: column;
     align-items: center;
     color: var(--white);
-    padding: 60px 0;
+    padding: 60px 40px;
 }
 
 .infos .title {
@@ -152,7 +161,6 @@ code {
 
 .infos img.bg-header {
     width: 100%;
-    display: none;
 }
 
 .infos p {
@@ -249,16 +257,20 @@ footer p {
 }
 
 @media (min-width: 768px) {
-    .infos {
-        height: 100vh;
+    .header .links a {
+        margin-left: 20px;
     }
-
-    .infos img.bg-header {
-        display: block;
+    
+    .header .logo {
+        font-size: 24px;
     }
 }
 
 @media (min-width: 1280px) {
+    .infos {
+        height: 100vh;
+    }
+
     .header .container {
         padding: 10px 0;
     }
