@@ -161,6 +161,7 @@ code {
 
 .infos img.bg-header {
     width: 100%;
+    max-width: 1920px;
 }
 
 .infos p {
