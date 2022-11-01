@@ -29,6 +29,7 @@
   "author": "Guilherme Almeida <guisalmeida.dev@gmail.com> (https://guisalmeida.com/)",
   "license": "MIT",
   "devDependencies": {
+    "axe-core": "^4.5.0",
     "cypress": "^10.3.0",
     "cypress-axe": "^1.0.0",
     "cypress-terminal-report": "^4.1.1",

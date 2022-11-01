@@ -30,9 +30,15 @@
 			<p>Testes de acessibilidade mais práticos e intuitivos.</p>
 			<code>npm install --save-dev a11y-analyzer</code>
 			<div class="buttons">
-				<a href="https://www.npmjs.com/package/a11y-analyzer"><img src="https://img.shields.io/npm/v/a11y-analyzer.svg" alt=""></a>
-				<a class="github-button" href="https://github.com/guisalmeida/a11y-analyzer" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star guisalmeida/a11y-analyzer on GitHub">Star</a>
-				<a href="https://github.com/guisalmeida/a11y-analyzer/actions/workflows/main.yml"><img src="https://github.com/guisalmeida/a11y-analyzer/actions/workflows/main.yml/badge.svg?branch=master" alt=""></a>
+				<a href="https://www.npmjs.com/package/a11y-analyzer" target="_blank">
+					<img src="https://img.shields.io/npm/v/a11y-analyzer.svg" alt="">
+				</a>
+				<a class="github-button" href="https://github.com/guisalmeida/a11y-analyzer" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star guisalmeida/a11y-analyzer on GitHub" target="_blank">
+					Star
+				</a>
+				<a href="https://github.com/guisalmeida/a11y-analyzer/actions/workflows/main.yml" target="_blank">
+					<img src="https://github.com/guisalmeida/a11y-analyzer/actions/workflows/main.yml/badge.svg?branch=master" alt="">
+				</a>
 			</div>
 		</div>
 	</div>
@@ -58,9 +64,9 @@
 			<img src="./assets/images/cypress-config1.png" alt="">
 			<p>A seguir uma próxima tela é apresentado com os arquivos necessários para execução dos testes que a biblioteca gera automaticamente, como mostra a figura.</p>
 			<img src="./assets/images/cypress-config2.png" alt="">
-			<p>A seguir, basta clicar no botão continuar e selecionar um navegador para começar os testes. É aberto então o navegador escolhido onde é possível criar casos de testes já nesta interface como mostra a próxima figura ou podem ser criados manualmente dentro da pasta cypress/e2e dentro do projeto. Como o analisador vai ficar responsável por executar os testes, não há necessidade de criar testes nesse momento, portanto essa interface pode ser fechada.</p>
+			<p>A seguir, basta clicar no botão continuar e selecionar um navegador para começar os testes. É aberto então o navegador escolhido onde é possível criar casos de testes já nesta interface como mostra a próxima figura ou podem ser criados manualmente dentro da pasta <strong class="code">cypress/e2e</strong> dentro do projeto. Como o analisador vai ficar responsável por executar os testes, não há necessidade de criar testes nesse momento, portanto essa interface pode ser fechada.</p>
 			<img src="./assets/images/cypress-config3.png" alt="">
-			<p>Após os arquivos do Cypress serem criados é necessário fazer alguns ajustes para a integração com o analisador e as outras bibliotecas dentro do projeto. O arquivo a partir da pasta raiz cypress/support/e2e.js deve ser atualizado com a linha mostrada abaixo para incluir os comandos específicos do analisador:</p>
+			<p>Após os arquivos do Cypress serem criados é necessário fazer alguns ajustes para a integração com o analisador e as outras bibliotecas dentro do projeto. O arquivo a partir da pasta raiz <strong class="code">cypress/support/e2e.js</strong> deve ser atualizado com a linha mostrada abaixo para incluir os comandos específicos do analisador:</p>
 			<code>import 'a11y-analyzer'</code>
 			<p>No arquivo <strong class="code">cypress.config.js</strong>  na pasta raiz do projeto de ser atualizado com o seguinte código:</p>
 
@@ -81,9 +87,9 @@ module.exports = defineConfig({
   },
 });
 			</code>
-			<p>Para usar a importação do tipo <span class="code">require</span>, certifique-se de que não haja um <span class="code">"type": "module"</span>, dentro do seu arquivo <span class="code">package.json</span> e, se estiver usando Typescript e importações ES6, certifique-se de que <span class="code">esModuleInterop</span> esteja habilitado.</p>
+			<p>Para usar a importação do tipo <strong class="code">require</strong>, certifique-se de que não haja um <strong class="code">"type": "module"</strong>, dentro do seu arquivo <strong class="code">package.json</strong> e, se estiver usando Typescript e importações ES6, certifique-se de que <strong class="code">esModuleInterop</strong> esteja habilitado.</p>
 			<p>Para execução do analisador em um projeto web se faz necessário que a interface já esteja sendo compilada e exposta em uma porta local da máquina ou hospedada em algum servidor. 
-			Para executar os testes na interface do projeto é preciso criar um arquivo dentro da pasta <span class="code">cypress/e2e</span>. Na notação de testes do cypress cada caso de teste é executado pelo método <span class="code">it()</span>, dentro dele é necessário passar o comando do analisador <span class="code">cy.analyseA11y()</span>, pois é ele o responsável por executar a bateria de testes de acessibilidade.</p>
+			Para executar os testes na interface do projeto é preciso criar um arquivo dentro da pasta <strong class="code">cypress/e2e</strong>. Na notação de testes do cypress cada caso de teste é executado pelo método <strong class="code">it()</strong>, dentro dele é necessário passar o comando do analisador <strong class="code">cy.analyseA11y()</strong>, pois é ele o responsável por executar a bateria de testes de acessibilidade.</p>
 			<p>Também é possível passar algumas configurações por parâmetro para o comando, cada configuração possui um comportamento diferente e serve para um objetivo específico. Elas são apresentadas a seguir de forma separada somente para fins mais didáticos, porém podem ser feitas todas em um único comando se o desenvolvedor assim necessitar.</p>
 			<p>A seguir alguns dos principais exemplos de uso e configurações especificas que podem ser feitas com o analisador:</p>
 			<p>No primeiro caso de teste é atribuído apenas um parâmetro que especifica o endereço da interface que deve ser testada, esse pode ser tanto um apontamento para o servidor local ou um endereço na web, ele é o único parâmetro obrigatório que deve ser atribuído. Sendo assim, todos os tipos de critérios de acessibilidade serão avaliados tornando esse cenário o mais completo pois nenhuma regra está sendo ignorada ou excluída.</p>
@@ -131,6 +137,11 @@ it('Should ONLY include rules with these levels of conformance', () => {
   });
 })
 			</code>
+			<h1 class="code">Resultados</h1>
+			<p>Assim que é executado tanto no terminal como na interface de testes do Cypress, o analisador executa seus testes predefinidos, onde interage com o sistema em que foi instalado. Quando são detectadas violações de acessibilidade, ele emite um erro sinalizando que o teste falhou, com uma mensagem contendo um resumo do erro, o tipo de impacto, link para a documentação e os elementos HTML que contém o erro na interface web do sistema.</p>
+			<img src="./assets/images/cypress-config5.png" alt="">
+			<p>Por fim, tudo que foi encontrado é listado, onde é possível ver quantos testes foram executados, quantos passaram, quantos falharam e quanto tempo eles levaram para serem executados. Na interface de testes, enquanto os comandos de teste são executados, é possível ver as interações com a interface em tempo real, como é demonstrado na Figura 17.</p>
+			<img src="./assets/images/terminal.png" alt="">
 		</div>
 	</div>
 
@@ -149,7 +160,7 @@ it('Should ONLY include rules with these levels of conformance', () => {
 
 	<footer>
 		<div class="container">
-			<p>Copyright © 2022 <span class="code" style="font-weight: bold;">A11Y-Analyzer</span>.</p>
+			<p>Copyright © 2022 <strong class="code" style="font-weight: bold;">A11Y-Analyzer</strong>.</p>
 		</div>
 	</footer>
 
