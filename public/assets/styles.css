@@ -245,6 +245,7 @@ form button {
     display: inline-block;
     padding: 10px 20px;
     width: fit-content;
+    cursor: pointer;
 }
 
 footer {
