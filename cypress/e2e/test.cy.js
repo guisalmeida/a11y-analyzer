@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 
 describe("Example tests", () => {
-  it("Should log any accessibility failures", () => {
-    cy.analyseA11y("/");
-  });
+  // it("Should log any accessibility failures", () => {
+  //   cy.analyseA11y("/");
+  // });
 
   // it('Should execute ONLY specific elements on the page', () => {
   //   cy.analyseA11y('https://example.cypress.io', '.container', null);
@@ -25,13 +25,13 @@ describe("Example tests", () => {
   //   });
   // })
 
-  // it('Should ONLY include rules with these levels of conformance', () => {
-  //   cy.analyseA11y('https://example.cypress.io', null, {
-  //     runOnly: {
-  //         type: 'tag',
-  //         values: ['wcag2a', 'wcag2aa']
-  //       }
-  //     }
-  //   );
-  // })
+  it('Should ONLY include rules with these levels of conformance', () => {
+    cy.analyseA11y('/', null, {
+      runOnly: {
+          type: 'tag',
+          values: ['wcag2a','wcag2aa', 'wcag2aaa', 'wcag21a', 'wcag21aa', 'wcag21aaa']
+        }
+      }
+    );
+  })
 });
