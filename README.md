@@ -27,13 +27,13 @@ npx cypress open
 ```
 
 Then cypress will opens a window dialogue like this one:
-![Welcome cypress image](./public/images/cypress-config1.png)  
+![Welcome cypress image](./public/assets/images/cypress-config1.png)  
 Selecting E2E Testing it will create a configuration environment for us.
-![Files for configuration](./public/images/cypress-config2.png)  
+![Files for configuration](./public/assets/images/cypress-config2.png)  
 Just hit the continue button and select a browser to start testing.
 Afterwards you can create your first spec with Cypress in this interface or you can create your specs mannualy inside the folder `cypress/e2e`.
-![Create spec](./public/images/cypress-config3.png)  
-![Create spec](./public/images/cypress-config4.png)  
+![Create spec](./public/assets/images/cypress-config3.png)  
+![Create spec](./public/assets/images/cypress-config4.png)  
 After hit create and run your test inside the interface of tests of the Cypress.
 
 
@@ -104,7 +104,9 @@ describe('Example tests', () => {
   })
 
   it('Should ONLY include rules with serious and critical impacts', () => {
-    cy.analyseA11y('https://example.cypress.io', null, { includedImpacts: ['critical', 'serious'] });
+    cy.analyseA11y('https://example.cypress.io', null, {
+      includedImpacts: ['critical', 'serious']
+    });
   })
 
   it('Should exclude specific accessibility rules', () => {
@@ -131,10 +133,10 @@ describe('Example tests', () => {
 
 When accessibility violations are detected, your test will fail and an entry titled "A11Y ERROR!" will be added to the command log for each type of violation found (they will be above the failed assertion). Clicking on those will can see where they are on screen and more like impact and a link to a documentation from Axe-core.
 
-![Cypress and DevTools output for passing and failing axe-core audits](./public/images/cypress-config5.png)
+![Cypress and DevTools output for passing and failing axe-core audits](./public/assets/images/cypress-config5.png)
 
 A similar output is present on terminal and on CI logs.
-![Terminal](./public/images/terminal.png)
+![Terminal](./public/assets/images/terminal.png)
 
 ## Authors
 
