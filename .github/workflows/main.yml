@@ -6,9 +6,9 @@ name: Cypress Tests
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master", "failed-examples" ]
+    branches: [ "master", "analyzer-fixes", "wave-fixes", "accessmonitor-fixes" ]
   pull_request:
-    branches: [ "master", "failed-examples" ]
+    branches: [ "master", "analyzer-fixes", "wave-fixes", "accessmonitor-fixes" ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
