@@ -94,7 +94,6 @@ code {
 
 .header {
     background-color: var(--light-blue);
-    color: var(--white);
     position: fixed;
     top: 0;
     left: 0;
@@ -102,7 +101,7 @@ code {
 }
 
 .header .links a {
-    color: var(--white);
+    color: var(--dark-blue);
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
@@ -125,7 +124,7 @@ code {
     font-weight: bold;
     font-size: 18px;
     text-decoration: none;
-    color: var(--white);
+    color: var(--dark-blue);
 }
 
 .infos {
@@ -178,7 +177,7 @@ code {
 
 .text-content h1,
 .text-content h1.code {
-    color: var(--light-blue);
+    color: var(--dark-blue);
     font-size: 32px;
     margin-bottom: 20px;
     font-weight: bold;
