@@ -150,8 +150,13 @@ it('Should ONLY include rules with these levels of conformance', () => {
 			<h1 class="code">Contato</h1>
 			<p>Deixe seu comentário, crítica ou sugestão.</p>
 			<form method="POST" data-netlify="true">
+				<label for="nome">Nome:</label>
 				<input type="text" name="nome" id="nome" placeholder="Digite seu nome..." required>
+
+				<label for="email">Email:</label>
 				<input type="text" name="email" id="email" placeholder="Digite seu email..." required>
+
+				<label for="comentario">Comentário:</label>
 				<textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="Deixe seu comentário..." required></textarea>
 				<button type="submit">
 					<span class="submit">
